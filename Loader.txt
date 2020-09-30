@@ -1,0 +1,124 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "GUI CONTROL:",
+                Text = "GUI Open/Close = LeftCtrl",
+                Duration = 15,
+            })
+
+local Keybind = Enum.KeyCode.LeftControl -- Open / Close Keybind
+
+local HeavenBreak = Instance.new("ScreenGui")
+local Loader = Instance.new("ImageButton")
+local Using = Instance.new("TextLabel")
+local Exe = Instance.new("ImageButton")
+local Buttontitle = Instance.new("TextLabel")
+local LoaderTop = Instance.new("ImageButton")
+local Title = Instance.new("TextLabel")
+local uis = game:GetService"UserInputService"
+
+--Properties:
+
+HeavenBreak.Name = "HeavenBreak"
+HeavenBreak.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+HeavenBreak.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Loader.Name = "Loader"
+Loader.Parent = HeavenBreak
+Loader.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Loader.BackgroundTransparency = 1.000
+Loader.Position = UDim2.new(0.232887089, 0, 0.415299863, 0)
+Loader.Active = true
+Loader.Draggable = true
+Loader.Size = UDim2.new(0, 309, 0, 194)
+Loader.Image = "rbxassetid://2790382281"
+
+Loader.ImageColor3 = Color3.fromRGB(22, 22, 22)
+Loader.ScaleType = Enum.ScaleType.Slice
+Loader.SliceCenter = Rect.new(4, 4, 252, 252)
+
+Using.Name = "Using"
+Using.Parent = Loader
+Using.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Using.BackgroundTransparency = 1.000
+Using.Position = UDim2.new(-0.000941106817, 0, 0.252577305, 0)
+Using.Size = UDim2.new(0, 309, 0, 35)
+Using.Font = Enum.Font.SourceSansBold
+Using.Text = "N/A"
+Using.TextColor3 = Color3.fromRGB(255, 255, 255)
+Using.TextScaled = true
+Using.TextSize = 14.000
+Using.TextWrapped = true
+
+Exe.Name = "Exe"
+Exe.Parent = Loader
+Exe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Exe.BackgroundTransparency = 1.000
+Exe.Position = UDim2.new(0.175900519, 0, 0.713083327, 0)
+Exe.Size = UDim2.new(0, 200, 0, 40)
+Exe.Image = "rbxassetid://2790382281"
+Exe.ImageColor3 = Color3.fromRGB(15, 15, 15)
+Exe.ScaleType = Enum.ScaleType.Slice
+Exe.SliceCenter = Rect.new(4, 4, 252, 252)
+
+Buttontitle.Name = "Buttontitle"
+Buttontitle.Parent = Exe
+Buttontitle.AnchorPoint = Vector2.new(0.5, 0.5)
+Buttontitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Buttontitle.BackgroundTransparency = 1.000
+Buttontitle.BorderSizePixel = 0
+Buttontitle.Position = UDim2.new(0.5, 0, 0.5, 0)
+Buttontitle.Size = UDim2.new(1.0250001, -5, 1.125, -5)
+Buttontitle.Font = Enum.Font.SourceSansBold
+Buttontitle.Text = "Execute"
+Buttontitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+Buttontitle.TextSize = 30.000
+Buttontitle.TextWrapped = true
+
+LoaderTop.Name = "LoaderTop"
+LoaderTop.Parent = Loader
+LoaderTop.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LoaderTop.BackgroundTransparency = 1.000
+LoaderTop.Position = UDim2.new(-0.000772914442, 0, -0.0149612818, 0)
+LoaderTop.Size = UDim2.new(0, 309, 0, 38)
+LoaderTop.Image = "rbxassetid://2790382281"
+LoaderTop.ImageColor3 = Color3.fromRGB(26, 26, 26)
+LoaderTop.ScaleType = Enum.ScaleType.Slice
+LoaderTop.SliceCenter = Rect.new(4, 4, 252, 252)
+
+Title.Name = "Title"
+Title.Parent = LoaderTop
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 0, 0.0526315793, 0)
+Title.Size = UDim2.new(0, 309, 0, 36)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "HeavenBreak V1.2"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+-- Scripts:
+
+local function FGDBA_fake_script() -- Using.LocalScript 
+	local script = Instance.new('LocalScript', Using)
+
+	script.Parent.Text = "Hi Welcome To HeavenBreak GUI ".. game.Players.LocalPlayer.Name .." Thank You! for using SHeaven#0390 scripts"
+end
+coroutine.wrap(FGDBA_fake_script)()
+
+uis.InputBegan:connect(function(key, gameProcessed)
+	if key.KeyCode == Keybind then
+		if HeavenBreak.Enabled == true then
+			HeavenBreak.Enabled = false
+		else
+			HeavenBreak.Enabled = true
+		end
+	end
+end)
+
+Exe.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/PWUEugDB",true))()
+	Loader:TweenSizeAndPosition(UDim2.new(0,700, 0, 400), UDim2.new(-.8, 0, .450, 0), "Out", "Quint", 2)
+end)
+
